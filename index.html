@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#062544">
+<title>JHAN WEATHER | El clima del Perú</title>
+<link rel="stylesheet" href="Untitled-1.css">
+</head>
+<body class="sunny">
+<div class="scenery"></div><div class="weather-tint"></div><div class="sun"></div><div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div><div class="rain"></div>
+<main class="app">
+<header class="top"><div class="brand"><div class="brand-icon">🌤️</div><div><div class="brand-name">JHAN <span>WEATHER</span></div><div class="tagline">El clima de todo el Perú</div></div></div><div class="country">📍 Perú　⌄</div></header>
+<section class="intro"><h1>El clima, donde estés.</h1><p>Consulta la temperatura y las condiciones meteorológicas de ciudades, provincias y distritos del Perú.</p></section>
+<form id="formBusqueda" class="searchrow glass"><span style="font-size:22px;padding-left:9px">⌕</span><input id="cityInput" placeholder="Buscar ciudad, distrito o provincia..." required><button class="btn" type="submit">Buscar</button></form>
+<button class="btn gps" id="btnGPS" type="button">◎　Mi ubicación</button>
+<div class="section-label"><span class="flag">🇵🇪</span>Ciudades del Perú</div>
+<div class="cities" id="peruCities">
+<button class="city active" data-city="Lima">Lima</button><button class="city" data-city="Arequipa">Arequipa</button><button class="city" data-city="Cusco">Cusco</button><button class="city" data-city="Trujillo">Trujillo</button><button class="city" data-city="Piura">Piura</button><button class="city" data-city="Iquitos">Iquitos</button><button class="city" data-city="Pucallpa">Pucallpa</button><button class="city" data-city="Puno">Puno</button><button class="city" data-city="Tacna">Tacna</button><button class="city" data-city="Huancayo">Huancayo</button><button class="city" data-city="Chiclayo">Chiclayo</button><button class="city" data-city="Cajamarca">Cajamarca</button><button class="city" data-city="Ica">Ica</button><button class="city" data-city="Ayacucho">Ayacucho</button><button class="city" data-city="Huaraz">Huaraz</button><button class="city" data-city="Tarapoto">Tarapoto</button><button class="city" data-city="Tumbes">Tumbes</button><button class="city" data-city="Moquegua">Moquegua</button><button class="city" data-city="Abancay">Abancay</button><button class="city" data-city="Puerto Maldonado">Puerto Maldonado</button><button class="city" data-city="Chachapoyas">Chachapoyas</button><button class="city" data-city="Huánuco">Huánuco</button><button class="city" data-city="Cerro de Pasco">Cerro de Pasco</button><button class="city" data-city="Moyobamba">Moyobamba</button>
+</div>
+<div id="status" class="status" role="status" aria-live="polite"></div>
+<section class="hero"><div class="hero-content"><div id="location" class="location">📍 Lima, Perú</div><div id="region" class="region">Consultando condiciones actuales</div><div id="temperature" class="temp">--°C</div><div id="condition" class="condition">Cargando clima...</div><div id="feels" class="feels">Sensación térmica: --°C</div><div id="updated" class="updated">Conectando con el servicio meteorológico...</div></div></section>
+<section class="metrics"><div class="metric glass"><div class="metric-top"><div class="metric-icon">♧</div><div><div class="metric-label">Humedad</div><div id="humidity" class="metric-value">--%</div></div></div></div><div class="metric glass"><div class="metric-top"><div class="metric-icon">≋</div><div><div class="metric-label">Viento</div><div id="wind" class="metric-value">-- km/h</div></div></div></div><div class="metric glass"><div class="metric-top"><div class="metric-icon">☁</div><div><div class="metric-label">Nubosidad</div><div id="cloudCover" class="metric-value">--%</div></div></div></div><div class="metric glass"><div class="metric-top"><div class="metric-icon">☀</div><div><div class="metric-label">Índice UV máx.</div><div id="uv" class="metric-value">--</div></div></div></div></section>
+<section class="hours-panel glass"><div class="hours-title">◷　PRÓXIMAS HORAS</div><div id="hours" class="hours"><div class="hour">Cargando...</div></div></section>
+<footer class="footer"><div>JHAN WEATHER · Información meteorológica de Perú</div><div class="credit">Datos proporcionados por <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a></div><div>El clima de tu ciudad, con una nueva perspectiva.</div></footer>
+</main>
+<script src="Untitled-1.js"></script>
+</body></html>
