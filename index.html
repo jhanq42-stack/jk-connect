@@ -1,26 +1,264 @@
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#062544">
-<title>JHAN WEATHER | El clima del Perú</title>
-<link rel="stylesheet" href="Untitled-1.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080e1c">
+    <title>JK CONNECT</title>
+    <link rel="stylesheet" href="Untitled-1.css">
 </head>
-<body class="sunny">
-<div class="scenery"></div><div class="weather-tint"></div><div class="sun"></div><div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div><div class="rain"></div>
-<main class="app">
-<header class="top"><div class="brand"><div class="brand-icon">🌤️</div><div><div class="brand-name">JHAN <span>WEATHER</span></div><div class="tagline">El clima de todo el Perú</div></div></div><div class="country">📍 Perú　⌄</div></header>
-<section class="intro"><h1>El clima, donde estés.</h1><p>Consulta la temperatura y las condiciones meteorológicas de ciudades, provincias y distritos del Perú.</p></section>
-<form id="formBusqueda" class="searchrow glass"><span style="font-size:22px;padding-left:9px">⌕</span><input id="cityInput" placeholder="Buscar ciudad, distrito o provincia..." required><button class="btn" type="submit">Buscar</button></form>
-<button class="btn gps" id="btnGPS" type="button">◎　Mi ubicación</button>
-<div class="section-label"><span class="flag">🇵🇪</span>Ciudades del Perú</div>
-<div class="cities" id="peruCities">
-<button class="city active" data-city="Lima">Lima</button><button class="city" data-city="Arequipa">Arequipa</button><button class="city" data-city="Cusco">Cusco</button><button class="city" data-city="Trujillo">Trujillo</button><button class="city" data-city="Piura">Piura</button><button class="city" data-city="Iquitos">Iquitos</button><button class="city" data-city="Pucallpa">Pucallpa</button><button class="city" data-city="Puno">Puno</button><button class="city" data-city="Tacna">Tacna</button><button class="city" data-city="Huancayo">Huancayo</button><button class="city" data-city="Chiclayo">Chiclayo</button><button class="city" data-city="Cajamarca">Cajamarca</button><button class="city" data-city="Ica">Ica</button><button class="city" data-city="Ayacucho">Ayacucho</button><button class="city" data-city="Huaraz">Huaraz</button><button class="city" data-city="Tarapoto">Tarapoto</button><button class="city" data-city="Tumbes">Tumbes</button><button class="city" data-city="Moquegua">Moquegua</button><button class="city" data-city="Abancay">Abancay</button><button class="city" data-city="Puerto Maldonado">Puerto Maldonado</button><button class="city" data-city="Chachapoyas">Chachapoyas</button><button class="city" data-city="Huánuco">Huánuco</button><button class="city" data-city="Cerro de Pasco">Cerro de Pasco</button><button class="city" data-city="Moyobamba">Moyobamba</button>
-</div>
-<div id="status" class="status" role="status" aria-live="polite"></div>
-<section class="hero"><div class="hero-content"><div id="location" class="location">📍 Lima, Perú</div><div id="region" class="region">Consultando condiciones actuales</div><div id="temperature" class="temp">--°C</div><div id="condition" class="condition">Cargando clima...</div><div id="feels" class="feels">Sensación térmica: --°C</div><div id="updated" class="updated">Conectando con el servicio meteorológico...</div></div></section>
-<section class="metrics"><div class="metric glass"><div class="metric-top"><div class="metric-icon">♧</div><div><div class="metric-label">Humedad</div><div id="humidity" class="metric-value">--%</div></div></div></div><div class="metric glass"><div class="metric-top"><div class="metric-icon">≋</div><div><div class="metric-label">Viento</div><div id="wind" class="metric-value">-- km/h</div></div></div></div><div class="metric glass"><div class="metric-top"><div class="metric-icon">☁</div><div><div class="metric-label">Nubosidad</div><div id="cloudCover" class="metric-value">--%</div></div></div></div><div class="metric glass"><div class="metric-top"><div class="metric-icon">☀</div><div><div class="metric-label">Índice UV máx.</div><div id="uv" class="metric-value">--</div></div></div></div></section>
-<section class="hours-panel glass"><div class="hours-title">◷　PRÓXIMAS HORAS</div><div id="hours" class="hours"><div class="hour">Cargando...</div></div></section>
-<footer class="footer"><div>JHAN WEATHER · Información meteorológica de Perú</div><div class="credit">Datos proporcionados por <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a></div><div>El clima de tu ciudad, con una nueva perspectiva.</div></footer>
-</main>
-<script src="Untitled-1.js"></script>
-</body></html>
+<body>
+
+    <!-- PANTALLA DE ACCESO -->
+    <section id="authScreen" class="auth-screen">
+        <div class="auth-card">
+            <div class="logo">JC</div>
+            <h1>JK <span>CONNECT</span></h1>
+            <p class="subtitle">Conecta con el mundo.</p>
+
+            <div class="auth-tabs">
+                <button id="loginTab" class="active">Iniciar sesión</button>
+                <button id="registerTab">Registrarse</button>
+            </div>
+
+            <form id="authForm">
+                <label id="nameLabel" class="hidden">Nombre completo</label>
+                <input id="nameInput" class="hidden"
+                    type="text" placeholder="Tu nombre">
+
+                <label>Correo electrónico</label>
+                <input id="emailInput" type="email"
+                    placeholder="correo@ejemplo.com" required>
+
+                <label>Contraseña</label>
+                <input id="passwordInput" type="password"
+                    placeholder="Mínimo 6 caracteres" minlength="6" required>
+
+                <button type="submit" id="authButton" class="primary-btn">
+                    Iniciar sesión
+                </button>
+            </form>
+            <p id="authMessage" class="message"></p>
+            <small>JK CONNECT © 2026</small>
+        </div>
+    </section>
+
+    <!-- APLICACIÓN -->
+    <div id="app" class="app hidden">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="logo small">JC</div>
+                <span>JK <b>CONNECT</b></span>
+            </div>
+
+            <p class="menu-title">MENÚ PRINCIPAL</p>
+
+            <button class="nav-btn active" data-page="home">⌂ <span>Inicio</span></button>
+            <button class="nav-btn" data-page="explore">◈ <span>Explorar</span></button>
+            <button class="nav-btn" data-page="messages">▤ <span>Mensajes</span></button>
+            <button class="nav-btn" data-page="profile">◉ <span>Mi perfil</span></button>
+
+            <div class="sidebar-bottom">
+                <div class="mini-user">
+                    <div class="avatar" id="sidebarAvatar">J</div>
+                    <div>
+                        <strong id="sidebarName">Usuario</strong>
+                        <small>Mi cuenta</small>
+                    </div>
+                </div>
+                <button id="logoutButton" class="logout-btn">↪ Cerrar sesión</button>
+            </div>
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="main-content">
+
+            <header class="topbar">
+                <div>
+                    <h2 id="pageTitle">Inicio</h2>
+                    <p>Bienvenido a tu espacio digital.</p>
+                </div>
+                <div class="top-user">
+                    <span class="online-dot"></span>
+                    <span id="topName">Usuario</span>
+                </div>
+            </header>
+
+            <!-- INICIO -->
+            <section id="homePage" class="page">
+
+                <div class="welcome-card">
+                    <div>
+                        <span class="eyebrow">TU COMUNIDAD DIGITAL</span>
+                        <h1>¡Hola, <span id="welcomeName">Usuario</span>!</h1>
+                        <p>Comparte tus ideas, fotografías y momentos.</p>
+                    </div>
+                    <div class="welcome-icon">✦</div>
+                </div>
+
+                <div class="section-heading">
+                    <h2>Crear publicación</h2>
+                    <span>Comparte algo nuevo</span>
+                </div>
+
+                <form id="postForm" class="create-post">
+                    <textarea id="postText"
+                        placeholder="¿Qué estás pensando hoy?"
+                        maxlength="500"></textarea>
+
+                    <div id="imagePreview" class="image-preview hidden">
+                        <img id="previewImg" alt="Vista previa">
+                        <button type="button" id="removeImage">✕</button>
+                    </div>
+
+                    <div class="post-actions">
+                        <label class="upload-btn">
+                            ▧ Añadir fotografía
+                            <input type="file" id="imageInput"
+                                accept="image/*" hidden>
+                        </label>
+                        <button class="primary-btn publish-btn" type="submit">
+                            Publicar ↗
+                        </button>
+                    </div>
+                </form>
+
+                <div class="section-heading">
+                    <h2>Publicaciones recientes</h2>
+                    <span>Comunidad</span>
+                </div>
+
+                <div id="postsContainer" class="posts-container"></div>
+            </section>
+
+            <!-- EXPLORAR -->
+            <section id="explorePage" class="page hidden">
+                <div class="welcome-card">
+                    <div>
+                        <span class="eyebrow">DESCUBRE</span>
+                        <h1>Explora la comunidad</h1>
+                        <p>Encuentra publicaciones y nuevas ideas.</p>
+                    </div>
+                    <div class="welcome-icon">◈</div>
+                </div>
+                <div id="explorePosts" class="posts-container"></div>
+            </section>
+
+<!-- MENSAJES -->
+<section id="messagesPage" class="page hidden">
+
+    <div class="section-heading">
+        <h2>Mensajes</h2>
+        <span>Conversa con tus amigos</span>
+    </div>
+
+    <div class="chat-layout">
+
+        <!-- LISTA DE CONTACTOS -->
+        <div class="chat-sidebar">
+
+            <h3>Contactos</h3>
+
+            <input
+                type="search"
+                id="userSearch"
+                placeholder="Buscar personas..."
+                autocomplete="off"
+            >
+
+            <div id="contactsList">
+                <p class="chat-empty">
+                    Cargando usuarios...
+                </p>
+            </div>
+
+        </div>
+
+        <!-- VENTANA DE CONVERSACIÓN -->
+        <div class="chat-window">
+
+            <div class="chat-header">
+
+                <div class="avatar" id="chatAvatar">JC</div>
+
+                <div>
+                    <strong id="chatContactName">
+                        Selecciona una persona
+                    </strong>
+
+                    <small id="chatContactStatus">
+                        Tus conversaciones aparecerán aquí
+                    </small>
+                </div>
+
+            </div>
+
+            <div id="chatMessages" class="chat-messages">
+
+                <div class="chat-empty">
+                    <span>✦</span>
+                    <p>¡Bienvenido a JK CONNECT!</p>
+                    <small>
+                        Selecciona un contacto para comenzar a conversar.
+                    </small>
+                </div>
+
+            </div>
+
+            <form id="chatForm" class="chat-input">
+
+                <input
+                    id="messageInput"
+                    type="text"
+                    placeholder="Escribe un mensaje..."
+                    maxlength="1000"
+                    autocomplete="off"
+                    disabled
+                >
+
+                <button
+                    class="primary-btn"
+                    id="sendMessageButton"
+                    type="submit"
+                    disabled
+                >
+                    ➤
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+            <!-- PERFIL -->
+            <section id="profilePage" class="page hidden">
+                <div class="profile-card">
+                    <div class="profile-cover"></div>
+                    <div class="profile-info">
+                        <div class="profile-avatar" id="profileAvatar">J</div>
+                        <h2 id="profileName">Usuario</h2>
+                        <p id="profileEmail">correo@ejemplo.com</p>
+                        <span class="profile-badge">✦ Miembro JHAN CONNECT</span>
+                    </div>
+                </div>
+                <div class="section-heading">
+                    <h2>Mis publicaciones</h2>
+                </div>
+                <div id="myPosts" class="posts-container"></div>
+            </section>
+
+            <footer>JHAN CONNECT · Tu comunidad, tu espacio.</footer>
+        </main>
+    </div>
+
+    <script type="module" src="Untitled-1.js"></script>
+</body>
+</html>
